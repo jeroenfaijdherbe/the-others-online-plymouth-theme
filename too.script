@@ -1,0 +1,40 @@
+# TOO 
+
+Window.GetMaxWidth = fun (){
+  i = 0;
+  width = 0;
+  while (Window.GetWidth(i)){
+    width = Math.Max(width, Window.GetWidth(i));
+    i++;
+    }
+  return width;
+};
+
+Window.GetMaxHeight = fun (){
+  i = 0;
+  height = 0;
+  while (Window.GetHeight(i)){
+    height = Math.Max(height, Window.GetHeight(i));
+    i++;
+    }
+  return height;
+};
+
+  logo.image = ImageNew("logo.png");
+  background.original_image = ImageNew("background.png");
+  Window.SetBackgroundTopColor(0.234, 0.43, 0.705);
+  Window.SetBackgroundBottomColor(0.16, 0.25, 0.44); 
+
+ratio =  logo.image.GetWidth() / logo.image.GetHeight();
+reduction = 1;
+logo.sprite = SpriteNew();
+logo.sprite.SetImage(logo.image);
+logo.opacity_angle = 0;
+logo.sprite.SetX((Window.GetX() + Window.GetMaxWidth()  - logo.image.GetWidth())  / 2);
+logo.sprite.SetY(Window.GetY() + Window.GetHeight() * 0.20);
+
+background.image = background.original_image.Scale(Window.GetMaxWidth() , Window.GetMaxHeight());
+background.sprite = SpriteNew();
+background.sprite.SetImage(background.image);
+background.sprite.SetPosition(Window.GetX(), Window.GetY(), -10);
+

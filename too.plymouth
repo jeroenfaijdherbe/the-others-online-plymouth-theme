@@ -1,0 +1,8 @@
+[Plymouth Theme]
+Name=The Others Online
+Description=The Others Online theme
+ModuleName=script
+
+[script]
+ImageDir=/lib/plymouth/themes/too
+ScriptFile=/lib/plymouth/themes/too/too.script
